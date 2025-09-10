@@ -57,3 +57,5 @@ from here you can use tools like `ctypes` or inline assembly to directly invoke 
 * this script only works on x64 windows
 * syscall numbers can change between windows versions always regenerate `ntdll_syscalls.py` on the target system
 * direct syscalls are low level operations misuse can crash your program or the system
+* using this script while you're playing a game that uses an anticheat (user-mode or kernel-level) may get you banned
+* this script might trigger your antivirus if it's extremely strict, if you want to use it, either add an exclusion or use it on a vm with the same build number
