@@ -155,9 +155,15 @@ def get_module_base(module_name: str):
 
 def read_cstring_from_address(addr):
     try:
-        p = ctypes.c_char_p(addr)
-        val = p.value
-        return val
+        result = bytearray()
+        i = 0
+        while True:
+            byte = ctypes.c_ubyte.from_address(addr + i).value
+            if byte == 0:
+                break
+            result.append(byte)
+            i += 1
+        return bytes(result)
     except (ValueError, OSError):
         return None
 
@@ -272,3 +278,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
